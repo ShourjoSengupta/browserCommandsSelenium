@@ -12,15 +12,29 @@ public class TestNavigation {
 		driver = new ChromeDriver();
 		driver.navigate().to("https://www.hollandandbarrett.com/u/login");
 		String url = driver.getCurrentUrl();
+		System.out.println(url);
 		driver.manage().window().maximize();
-		driver.get("https://www.google.co.in/");
+		
+		driver.navigate().to("https://www.google.co.in/");
 		url = driver.getCurrentUrl();
 		System.out.println(url);
+		
 		Thread.sleep(5000);
 		driver.navigate().back();
 		url = driver.getCurrentUrl();
 		System.out.println(url);
+		
+		driver.navigate().forward();
+		url = driver.getCurrentUrl();
+		System.out.println(url);
+		Thread.sleep(5000);
+		
+		driver.navigate().refresh();
+		url = driver.getCurrentUrl();
+		System.out.println(url);
+		
 
-		driver.close();
+		//driver.close();   only current interface of browser
+		driver.quit();// all browser instances
 	}
 }
